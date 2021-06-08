@@ -51,3 +51,35 @@ const createPassword = () => {
 }
 
 
+const generatePassword = () => {
+  password = [];
+  finalPassword = "";
+  const findPasswordLength = prompt("How long should your password be (8-128 characters)?");
+    if (findPasswordLength < 8) {
+      alert("Please enter a number equal to or greater than 8 characters");
+    }
+    else if (findPasswordLength > 128) {
+      alert("Please enter a number equal to or less than 128 characters");
+    }
+    else {
+      passwordLength = findPasswordLength;
+      const findPasswordType = prompt("What kind of characters would you like your password to contain (lowercase, uppercase, numeric, or special)?").toLowerCase();
+      if (findPasswordType === "lowercase") {
+        passwordType = "lowercase";
+      }
+      else if (findPasswordType === "uppercase") {
+        passwordType = "uppercase";
+      }
+      else if (findPasswordType === "numeric") {
+        passwordType = "numeric";
+      }
+      else if (findPasswordType === "special") {
+        passwordType = "special";
+      }
+      else {
+        alert("Please input one of the listed options")
+      }
+    }
+    assemblePassword();
+}
+generateBtn.addEventListener("click", writePassword);
